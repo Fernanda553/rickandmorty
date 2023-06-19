@@ -1,8 +1,13 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Cards from "./assets/components/Cards.jsx";
 
 function App() {
-  const url = "https://rickandmortyapi.com/api/character";
-  return <></>;
+  return (
+    <>
+      <Cards />
+    </>
+  );
 }
 
 export default App;
