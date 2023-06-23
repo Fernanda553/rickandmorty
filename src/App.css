@@ -1,6 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap");
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  color: rgb(87, 164, 203);
+  background: rgb(157, 173, 252);
+  background: linear-gradient(
+    315deg,
+    rgba(157, 173, 252, 1) 0%,
+    rgba(1, 3, 9, 1) 75%
+  );
   text-align: center;
+}
+h1 {
+  font-family: "Rubik Iso", cursive;
+}
+
+.cards {
+  width: 16rem;
+  margin: 40px;
+  color: rgb(150, 240, 146);
+  background: url(../public/card.png);
+  border: 3px solid #5ff0f0;
 }

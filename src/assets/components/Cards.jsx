@@ -1,15 +1,28 @@
-import Card from "react-bootstrap/Card";
+import { Card, Col } from "react-bootstrap";
 
-function Cards({ image, name, species, status }) {
+function Cards({ characters }) {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={image} />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{species}</Card.Text>
-        <h3>{status}</h3>
-      </Card.Body>
-    </Card>
+    <>
+      {characters.map((c) => {
+        return (
+          <Col key={c?.id}>
+            <Card className="cards">
+              <Card.Img
+                className="m-auto py-2"
+                style={{ width: "14rem" }}
+                variant="top"
+                src={c?.image}
+              />
+              <Card.Body>
+                <Card.Title>{c?.name}</Card.Title>
+                <Card.Text>{c?.status}</Card.Text>
+                <h4>{c?.species}</h4>
+              </Card.Body>
+            </Card>
+          </Col>
+        );
+      })}
+    </>
   );
 }
 
