@@ -28,6 +28,7 @@ const MiApi = () => {
 
   const handlerChange = (e) => {
     setSelector(e.target.value);
+    console.log(selector);
   };
 
   const sendCharacter = async (e) => {
@@ -40,10 +41,6 @@ const MiApi = () => {
     const names = dataOfNames.map((n) => n.name);
     const sortedNames = names.sort();
     console.log(sortedNames);
-
-    /*  const found = names.some((obj) => {
-      return obj === selector;
-    }); */
   };
 
   useEffect(() => {
@@ -60,6 +57,7 @@ const MiApi = () => {
               selector={selector}
               sendCharacter={sendCharacter}
               handlerChange={handlerChange}
+              characters={characters}
             />
           </Col>
         </Row>
