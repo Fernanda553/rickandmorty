@@ -17,10 +17,12 @@ const MiApi = () => {
 
   const getCharacter = async () => {
     try {
-      const character = await getData(
+      const { results: characters } = await getData(
         "https://rickandmortyapi.com/api/character"
       );
-      setCharacters(character.results);
+
+      characters.sort((a, b) => (a.name > b.name ? 1 : -1));
+      setCharacters(characters);
     } catch (error) {
       console.error(error.message);
     }
@@ -28,23 +30,29 @@ const MiApi = () => {
 
   const handlerChange = (e) => {
     setSelector(e.target.value);
-    console.log(selector);
   };
 
   const sendCharacter = async (e) => {
     e.preventDefault();
 
-    const characterName = await getData(
+    const { results: characters } = await getData(
       "https://rickandmortyapi.com/api/character"
     );
-    const dataOfNames = characterName.results;
-    const names = dataOfNames.map((n) => n.name);
-    const sortedNames = names.sort();
-    console.log(sortedNames);
+
+    if (selector === "") {
+      setCharacters(characters);
+      return;
+    }
+
+    const resultCharacter = characters.filter(
+      (character) => character.name === selector
+    );
+    setCharacters(resultCharacter);
   };
 
   useEffect(() => {
     getCharacter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

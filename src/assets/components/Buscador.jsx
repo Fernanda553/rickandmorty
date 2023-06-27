@@ -25,25 +25,26 @@ function Buscador({ selector, sendCharacter, handlerChange }) {
   ];
 
   return (
-    <div>
-      <Form.Select
-        className="text-center p-2"
-        value={selector}
-        onChange={handlerChange}
-        onSubmit={sendCharacter}
-      >
-        {options.map((option) => {
-          return (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          );
-        })}
-      </Form.Select>
-      <Button type="submit" variant="outline-info" className="m-4">
-        Search
-      </Button>
-    </div>
+    <>
+      <Form onSubmit={sendCharacter}>
+        <Form.Select
+          className="text-center p-2"
+          value={selector}
+          onChange={handlerChange}
+        >
+          {options.map((option) => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
+        </Form.Select>
+        <Button type="submit" variant="outline-info" className="m-4">
+          Search
+        </Button>
+      </Form>
+    </>
   );
 }
 
